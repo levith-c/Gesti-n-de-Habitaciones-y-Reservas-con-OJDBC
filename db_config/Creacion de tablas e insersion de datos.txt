@@ -1,0 +1,89 @@
+/*Creacion de tablas:*/
+
+CREATE TABLE habitaciones (
+  id NUMBER PRIMARY KEY,
+  tipo VARCHAR2(50),
+  tarifa NUMBER(10,2),
+  disponibilidad VARCHAR2(20)
+);
+
+CREATE TABLE huespedes (
+  id NUMBER PRIMARY KEY,
+  nombre VARCHAR2(50),
+  apellido VARCHAR2(50),
+  correo_electronico VARCHAR2(100),
+  numero_telefono VARCHAR2(20)
+);
+
+CREATE TABLE reservas (
+  id NUMBER PRIMARY KEY,
+  id_habitacion NUMBER,
+  numero_huespedes NUMBER,
+  tarifas NUMBER
+);
+
+
+
+/*Inserccion de datos: */
+
+INSERT INTO habitaciones (id, tipo, tarifa, disponibilidad)
+VALUES (1, 'Individual', 100, 'Disponible');
+
+INSERT INTO habitaciones (id, tipo, tarifa, disponibilidad)
+VALUES (2, 'Doble', 150, 'Disponible');
+
+INSERT INTO habitaciones (id, tipo, tarifa, disponibilidad)
+VALUES (3, 'Familiar', 200, 'Disponible');
+
+INSERT INTO habitaciones (id, tipo, tarifa, disponibilidad)
+VALUES (4, 'Suite', 250, 'Disponible');
+
+INSERT INTO habitaciones (id, tipo, tarifa, disponibilidad)
+VALUES (5, 'Accesible', 300, 'Disponible');
+
+INSERT INTO habitaciones (id, tipo, tarifa, disponibilidad)
+VALUES (6, 'Con vistas al mar', 350, 'Disponible');
+
+INSERT INTO habitaciones (id, tipo, tarifa, disponibilidad)
+VALUES (7, 'Con jacuzzi', 400, 'Disponible');
+
+INSERT INTO habitaciones (id, tipo, tarifa, disponibilidad)
+VALUES (8, 'Con piscina privada', 450, 'Disponible');
+
+INSERT INTO habitaciones (id, tipo, tarifa, disponibilidad)
+VALUES (9, 'Con servicio de mayordomo', 500, 'Disponible');
+
+*********************************************************************
+
+INSERT INTO huespedes (id, nombre, apellido, correo_electronico, numero_telefono)
+VALUES (1, 'Juan', 'Pérez', 'juan.perez@email.com', '310-123-4567');
+
+INSERT INTO huespedes (id, nombre, apellido, correo_electronico, numero_telefono)
+VALUES (2, 'María', 'Sánchez', 'maria.sanchez@email.com', '320-123-4567');
+
+INSERT INTO huespedes (id, nombre, apellido, correo_electronico, numero_telefono)
+VALUES (3, 'Pedro', 'Rodríguez', 'pedro.rodriguez@email.com', '330-123-4567');
+
+INSERT INTO huespedes (id, nombre, apellido, correo_electronico, numero_telefono)
+VALUES (4, 'Ana', 'Gómez', 'ana.gomez@email.com', '340-123-4567');
+
+INSERT INTO huespedes (id, nombre, apellido, correo_electronico, numero_telefono)
+VALUES (5, 'Carlos', 'Hernández', 'carlos.hernandez@email.com', '350-123-4567');
+
+***********************************************************************
+
+INSERT INTO reservas (id, id_habitacion, numero_huespedes, tarifas)
+VALUES (1, 1, 2, 300);
+
+INSERT INTO reservas (id, id_habitacion, numero_huespedes, tarifas)
+VALUES (2, 2, 3, 450);
+
+INSERT INTO reservas (id, id_habitacion, numero_huespedes, tarifas)
+VALUES (3, 3, 4, 600);
+
+INSERT INTO reservas (id, id_habitacion, numero_huespedes, tarifas)
+VALUES (4, 4, 5, 750);
+
+INSERT INTO reservas (id, id_habitacion, numero_huespedes, tarifas)
+VALUES(5, 5, 6, 900);
+

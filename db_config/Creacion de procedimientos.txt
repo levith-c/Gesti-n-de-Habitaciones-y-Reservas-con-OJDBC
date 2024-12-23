@@ -1,0 +1,62 @@
+/**********************************************************************
+Procedimientos:
+**********************************************************************/
+CREATE OR REPLACE PROCEDURE procedimiento_mostrar_habitaciones (cursor_hab out SYS_REFCURSOR)
+is
+BEGIN
+  OPEN cursor_hab FOR
+    SELECT * FROM habitaciones;
+END;
+/
+
+CREATE OR REPLACE PROCEDURE procedimiento_mostrar_habitaciones_disponibles (cursor_hab out SYS_REFCURSOR)
+is
+BEGIN
+  OPEN cursor_hab FOR
+    SELECT * FROM habitaciones where disponibilidad = 'Disponible';
+END;
+/
+
+CREATE OR REPLACE PROCEDURE procedimiento_insertar_habitacion (id number, tipo varchar, tarifa number, disponibilidad String)
+is
+BEGIN
+  INSERT INTO habitaciones
+(id, tipo, tarifa, disponibilidad)
+VALUES
+(id, tipo, tarifa, disponibilidad);
+END;
+/
+
+CREATE OR REPLACE PROCEDURE procedimiento_eliminar_habitacion (id_habitacion number)
+is
+BEGIN
+    UPDATE habitaciones SET disponibilidad = 'Eliminada' WHERE id = id_habitacion;
+END;
+/
+
+CREATE OR REPLACE PROCEDURE procedimiento_crear_reserva (id number, ID_HABITACION number, NUMERO_HUESPEDES number, TARIFAS number)
+is
+BEGIN
+  INSERT INTO reservas
+(id, ID_HABITACION, NUMERO_HUESPEDES, TARIFAS)
+VALUES
+(id, ID_HABITACION, NUMERO_HUESPEDES, TARIFAS);
+END;
+/
+
+CREATE OR REPLACE PROCEDURE procedimiento_crear_huesped (id number, NOMBRE varchar, APELLIDO varchar, CORREO_ELECTRONICO varchar, NUMERO_TELEFONO varchar)
+is
+BEGIN
+  INSERT INTO huespedes
+(id, NOMBRE, APELLIDO, CORREO_ELECTRONICO, NUMERO_TELEFONO)
+VALUES
+(id, NOMBRE, APELLIDO, CORREO_ELECTRONICO, NUMERO_TELEFONO);
+END;
+/
+
+CREATE OR REPLACE PROCEDURE Actualizar_disponibilidad_habitacion (id_HABITACION number)
+is
+BEGIN
+  UPDATE habitaciones SET disponibilidad = 'No disponible' WHERE id = id_HABITACION;
+END;
+/
